@@ -299,12 +299,12 @@ display:none;
                                             <div class="menu-online-banking-menu-container">
                                                 <ul id="menu-online-banking-menu" class="online-menu">
                                                     <li id="menu-item-1849" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1849">
-                                                        <a href="https://www.instagobank.com/register" class="menu-image-title-after menu-image-not-hovered">
+                                                        <a href="{{ route('register') }}" class="menu-image-title-after menu-image-not-hovered">
                                                             <img width="24" height="24" src="homepage/wp-content/uploads/2017/10/man-user-24x24.png" class="menu-image menu-image-title-after" alt="" srcset="wp-content/uploads/2017/10/man-user-24x24.png 24w, wp-content/uploads/2017/10/man-user.png 32w" sizes="(max-width: 24px) 100vw, 24px" /><span class="menu-image-title">Personal</span>
                                                         </a>
                                                     </li>
                                                     <li id="menu-item-1850" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1850">
-                                                        <a target="_blank" href="https://www.instagobank.com/register" class="menu-image-title-after menu-image-not-hovered">
+                                                        <a target="_blank" href="{{ route('register') }}" class="menu-image-title-after menu-image-not-hovered">
                                                             <img width="24" height="24" src="homepage/wp-content/uploads/2017/10/group-24x24.png" class="menu-image menu-image-title-after" alt="" srcset="wp-content/uploads/2017/10/group-24x24.png 24w, wp-content/uploads/2017/10/group.png 32w" sizes="(max-width: 24px) 100vw, 24px" />
                                                             <span class="menu-image-title">Corporate</span>
                                                         </a>
@@ -537,7 +537,7 @@ display:none;
                 </div>
                 <div class="leftBoxBottom">
                     <span class="yellowTag ">LOOKING TO</span>
-                                                                                <a href="https://www.instagobank.com/register" class="lokingRag animateReady"><span class="open-an-account"></span>Apply for an account</a>
+                                                                                <a href="{{ route('register') }}" class="lokingRag animateReady"><span class="open-an-account"></span>Apply for an account</a>
                                                             <a href="https://www.instagobank.com/user/loan" class="lokingRag animateReady"><span class="loan"></span>Borrow</a>
                                                             <a href="https://www.instagobank.com/user/plans" class="lokingRag animateReady"><span class="invest-my-money"></span>Invest my money</a>
                                                             <a href="https://www.instagobank.com/user/save" class="lokingRag animateReady"><span class="start-saving"></span>Save for future</a>
@@ -623,11 +623,11 @@ display:none;
             <span class="date">Mon, 19 Oct 2020</span>
         </div>
                 <div class="newsContent animate">                                   
-            <p><a href="https://www.instagobank.com/register">Instago Food City becomes the 1st supermarket to offer cashless mobile payments</a></p>
+            <p><a href="{{ route('register') }}">Instago Food City becomes the 1st supermarket to offer cashless mobile payments</a></p>
             <span class="date">Thu, 8 Oct 2020</span>
         </div>
                 <div class="newsContent animate">                                   
-            <p><a href="https://www.instagobank.com/register">Veteran Banker Senarath Bandara to take over the reigns of Instago Bank</a></p>
+            <p><a href="{{ route('register') }}">Veteran Banker Senarath Bandara to take over the reigns of Instago Bank</a></p>
             <span class="date">Fri, 28 Aug 2020</span>
         </div>
             </div>
@@ -681,7 +681,7 @@ display:none;
     <div class="footerlinkBox">
         <div class="head animate">QUICK LINKS</div>
         <ul>
-                                    <li class="animate"><a href="https://www.instagobank.com/register"  target="">Open Account</a></li>
+                                    <li class="animate"><a href="{{ route('register') }}"  target="">Open Account</a></li>
                         <li class="animate"><a href="https://www.instagobank.com/user/loan"  target="">Loan Request Form</a></li>
                         
                                 </ul>
