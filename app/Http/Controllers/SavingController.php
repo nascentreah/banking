@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Loan;
+use App\Models\Saving;
 
-class LoanController extends Controller
+class SavingController extends Controller
 {
-    
+
     /**
      * Create a new controller instance.
      *
@@ -18,6 +18,7 @@ class LoanController extends Controller
         $this->middleware('auth');
     }
     
+    
       /**
      * Shows Loans
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
@@ -27,12 +28,11 @@ class LoanController extends Controller
     {
         // $this->authorize('viewAny', [Leave::class]);
 
-        $loans = Loan::all();
+        $savings = Saving::all();
 
-        return view('loans.index',[
-        	'loans' => $loans
+        return view('savings.index',[
+        	'savings' => $savings
         ]);
 
     }
-
 }

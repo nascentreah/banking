@@ -15,6 +15,11 @@ class CreateLoansTable extends Migration
     {
         Schema::create('loans', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->integer('amount');
+            $table->boolean('status');
+            $table->string('reference_id');
+            $table->text('details');
             $table->timestamps();
         });
     }

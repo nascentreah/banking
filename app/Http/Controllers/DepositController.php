@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Loan;
+use App\Models\Deposit;
 
-class LoanController extends Controller
+class DepositController extends Controller
 {
-    
+        
     /**
      * Create a new controller instance.
      *
@@ -27,12 +27,11 @@ class LoanController extends Controller
     {
         // $this->authorize('viewAny', [Leave::class]);
 
-        $loans = Loan::all();
+        $deposits = Deposit::all();
 
-        return view('loans.index',[
-        	'loans' => $loans
+        return view('deposits.index',[
+        	'deposits' => $deposits
         ]);
 
     }
-
 }

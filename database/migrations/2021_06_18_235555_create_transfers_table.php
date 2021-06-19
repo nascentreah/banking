@@ -15,6 +15,12 @@ class CreateTransfersTable extends Migration
     {
         Schema::create('transfers', function (Blueprint $table) {
             $table->id();
+            $table->string('ref_id');
+            $table->integer('amount');
+            $table->integer('sender_id');
+            $table->integer('receiver_id');
+            $table->boolean('status');
+            $table->integer('type');
             $table->timestamps();
         });
     }
