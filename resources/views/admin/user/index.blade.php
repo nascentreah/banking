@@ -38,7 +38,6 @@
     </script>
 @endpush
 
-
 @section('content')
 <div class="page-titles">
     <ol class="breadcrumb">
@@ -88,7 +87,7 @@
                                 </td>
                                 <td>
                                     @if($val->suspend==0)
-                                        <span class="badge light badge-success">Not Suspended</span>
+                                        <span class="badge light badge-warning">Not Suspended</span>
                                     @elseif($val->suspend==1)
                                         <span class="badge light badge-danger">Suspended</span>
                                     @endif
