@@ -670,7 +670,7 @@
                         <div class="dashboard_bar">
                             <!-- Dashboard  -->
                             Welcome back,
-                        <!--       Acct bal- $705,032,504.00 USD -->
+                            <!--       Acct bal- $705,032,504.00 USD -->
                         </div>
                     </div>
                     <ul class="navbar-nav header-right">
@@ -837,63 +837,137 @@
         <div class="deznav-scroll">
             <ul class="metismenu" id="menu">
                 <li>
-                    <a class="ai-icon" href="#">
+                    <a class="ai-icon" href="{{ route('user.dashboard') }}">
                         <i class="flaticon-381-networking"></i>
                         <span class="nav-text">Dashboard</span>
                     </a>
                 </li>
+                {{--            <li class="nav-item">--}}
+                {{--              <a class="nav-link text-default" href="{{route('user.dashboard')}}">--}}
+                {{--                <i class="ni ni-shop"></i>--}}
+                {{--                <span class="nav-link-text">Dashboard</span>--}}
+                {{--              </a>--}}
+                {{--            </li>--}}
+                {{--            <li class="nav-item">--}}
+                {{--              <a class="nav-link text-default" href="#navbar-examples" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-examples">--}}
+                {{--                <i class="ni ni-archive-2"></i>--}}
+                {{--                <span class="nav-link-text">Transfer</span>--}}
+                {{--              </a>--}}
+                {{--              <div class="collapse" id="navbar-examples">--}}
+                {{--                <ul class="nav nav-sm flex-column">--}}
+                {{--                  <li class="nav-item text-default">--}}
+                {{--                    <a href="{{route('user.ownbank')}}" class="nav-link">{{$set->site_name}}</a>--}}
+                {{--                  </li> --}}
+                {{--                 <li class="nav-item text-default">--}}
+                {{--                    <a href="{{route('user.otherbank')}}" class="nav-link">Foreign transfer</a>--}}
+                {{--                  </li>--}}
+                {{--                </ul>--}}
+                {{--              </div>--}}
+                {{--            </li>--}}
+                {{--            <li class="nav-item">--}}
+                {{--              <a class="nav-link text-default" href="{{route('user.fund')}}">--}}
+                {{--                <i class="ni ni-credit-card"></i>--}}
+                {{--                <span class="nav-link-text">Deposit</span>--}}
+                {{--              </a>--}}
+                {{--            </li> --}}
+                {{--           <li class="nav-item">--}}
+                {{--              <a class="nav-link text-default" href="{{route('user.withdraw')}}">--}}
+                {{--                <i class="ni ni-bag-17"></i>--}}
+                {{--                <span class="nav-link-text">E-withdraw</span>--}}
+                {{--              </a>--}}
+                {{--            </li>--}}
+                {{--             <li class="nav-item">--}}
+                {{--              <a class="nav-link text-default" href="{{route('user.statement')}}">--}}
+                {{--                <i class="ni ni-collection"></i>--}}
+                {{--                <span class="nav-link-text">Account statement</span>--}}
+                {{--              </a>--}}
+                {{--            </li> --}}
+                {{--          </ul>--}}
+                {{--          <!-- Divider -->--}}
+                {{--          <hr class="my-3">--}}
+                {{--          <!-- Heading -->--}}
+                {{--          <h6 class="navbar-heading p-0 text-muted">More</h6>--}}
+                {{--          <!-- Navigation -->--}}
+                {{--          <ul class="navbar-nav mb-md-3">--}}
+                {{--            <li class="nav-item">--}}
+                {{--              <a class="nav-link text-default" href="{{route('user.branch')}}">--}}
+                {{--                <i class="ni ni-building"></i>--}}
+                {{--                <span class="nav-link-text">Branches</span>--}}
+                {{--              </a>--}}
+                {{--            </li>   --}}
+                {{--            <li class="nav-item">--}}
+                {{--              <a class="nav-link text-default" href="{{route('user.ticket')}}">--}}
+                {{--                <i class="ni ni-support-16"></i>--}}
+                {{--                <span class="nav-link-text">Support ticket</span>--}}
+                {{--              </a>--}}
+                {{--            </li> --}}
+                {{--            <li class="nav-item">--}}
+                {{--              <a class="nav-link text-default" href="{{route('user.logout')}}">--}}
+                {{--                <i class="ni ni-button-power"></i>--}}
+                {{--                <span class="nav-link-text">Logout</span>--}}
+                {{--              </a>--}}
+                {{--            </li>--}}
                 <li>
                     <a class="has-arrow ai-icon" href="#" aria-expanded="false">
                         <i class="flaticon-381-television"></i>
                         <span class="nav-text">Transfers</span>
                     </a>
                     <ul aria-expanded="false">
-                        <li><a href="#">InstagoBank</a></li>
-                        <li><a href="#">Foreign Transfer</a></li>
+                        <li class="nav-item text-default">
+                        <li><a href="{{ route('user.ownbank') }}">{{$set->site_name}}</a></li>
+                        <li><a href="{{ route('user.otherbank') }}">Foreign Transfer</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a class="ai-icon" href="#" aria-expanded="true">
+                    <a class="ai-icon" href="{{ route('user.fund') }}" aria-expanded="true">
                         <i class="flaticon-381-controls-3"></i>
                         <span class="nav-text">Deposits</span>
                     </a>
                 </li>
                 <li>
-                    <a class="ai-icon" href="#" aria-expanded="true">
+                    <a class="ai-icon" href="{{ route('user.withdraw') }}" aria-expanded="true">
                         <i class="flaticon-381-controls-3"></i>
                         <span class="nav-text">E-Withdraw</span>
                     </a>
                 </li>
                 <li>
-                    <a class="ai-icon" href="#" aria-expanded="true">
+                    <a class="ai-icon" href="{{ route('user.statement') }}" aria-expanded="true">
                         <i class="flaticon-381-controls-3"></i>
                         <span class="nav-text">Account Statement</span>
                     </a>
                 </li>
-                <li>
-                    <a class="ai-icon" href="#" aria-expanded="true">
-                        <i class="flaticon-381-controls-3"></i>
-                        <span class="nav-text">Save 4 Me</span>
-                    </a>
-                </li>
-                <li>
-                    <a class="ai-icon" href="#" aria-expanded="true">
-                        <i class="flaticon-381-controls-3"></i>
-                        <span class="nav-text">PY Scheme</span>
-                    </a>
-                </li>
+                @if($set->save==1)
+                    <li>
+                        <a class="ai-icon" href="{{route('user.save')}}" aria-expanded="true">
+                            <i class="flaticon-381-controls-3"></i>
+                            <span class="nav-text">Save 4 Me</span>
+                        </a>
+                    </li>
+                @endif
+                @if($set->py_scheme==1)
+                    <li>
+                        <a class="ai-icon" href="{{ route('user.plans') }}" aria-expanded="true">
+                            <i class="flaticon-381-controls-3"></i>
+                            <span class="nav-text">PY Scheme</span>
+                        </a>
+                    </li>
+                @endif
+                @if($set->loan==1)
+                    <li>
 
-                <li><a href="#" class="ai-icon" aria-expanded="false">
-                        <i class="flaticon-381-settings-2"></i>
-                        <span class="nav-text">Loan</span>
-                    </a>
-                </li>
+                        <a href="{{ route('user.loan') }}" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-settings-2"></i>
+                            <span class="nav-text">Loan</span>
+                        </a>
+                    </li>
+                @endif
 
                 <li><a href="widget-basic.html" class="ai-icon" aria-expanded="false">
                         <i class="flaticon-381-settings-2"></i>
                         <span class="nav-text">Bank & Card</span>
                     </a>
                 </li>
+
             </ul>
 
             <div class="copyright">
