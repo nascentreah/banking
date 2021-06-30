@@ -829,10 +829,6 @@
     <!--**********************************
         Header end ti-comment-alt
     ***********************************-->
-
-    <!--**********************************
-        Sidebar start
-    ***********************************-->
     <div class="deznav">
         <div class="deznav-scroll">
             <ul class="metismenu" id="menu">
@@ -842,47 +838,6 @@
                         <span class="nav-text">Dashboard</span>
                     </a>
                 </li>
-                {{--            <li class="nav-item">--}}
-                {{--              <a class="nav-link text-default" href="{{route('user.dashboard')}}">--}}
-                {{--                <i class="ni ni-shop"></i>--}}
-                {{--                <span class="nav-link-text">Dashboard</span>--}}
-                {{--              </a>--}}
-                {{--            </li>--}}
-                {{--            <li class="nav-item">--}}
-                {{--              <a class="nav-link text-default" href="#navbar-examples" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-examples">--}}
-                {{--                <i class="ni ni-archive-2"></i>--}}
-                {{--                <span class="nav-link-text">Transfer</span>--}}
-                {{--              </a>--}}
-                {{--              <div class="collapse" id="navbar-examples">--}}
-                {{--                <ul class="nav nav-sm flex-column">--}}
-                {{--                  <li class="nav-item text-default">--}}
-                {{--                    <a href="{{route('user.ownbank')}}" class="nav-link">{{$set->site_name}}</a>--}}
-                {{--                  </li> --}}
-                {{--                 <li class="nav-item text-default">--}}
-                {{--                    <a href="{{route('user.otherbank')}}" class="nav-link">Foreign transfer</a>--}}
-                {{--                  </li>--}}
-                {{--                </ul>--}}
-                {{--              </div>--}}
-                {{--            </li>--}}
-                {{--            <li class="nav-item">--}}
-                {{--              <a class="nav-link text-default" href="{{route('user.fund')}}">--}}
-                {{--                <i class="ni ni-credit-card"></i>--}}
-                {{--                <span class="nav-link-text">Deposit</span>--}}
-                {{--              </a>--}}
-                {{--            </li> --}}
-                {{--           <li class="nav-item">--}}
-                {{--              <a class="nav-link text-default" href="{{route('user.withdraw')}}">--}}
-                {{--                <i class="ni ni-bag-17"></i>--}}
-                {{--                <span class="nav-link-text">E-withdraw</span>--}}
-                {{--              </a>--}}
-                {{--            </li>--}}
-                {{--             <li class="nav-item">--}}
-                {{--              <a class="nav-link text-default" href="{{route('user.statement')}}">--}}
-                {{--                <i class="ni ni-collection"></i>--}}
-                {{--                <span class="nav-link-text">Account statement</span>--}}
-                {{--              </a>--}}
-                {{--            </li> --}}
-                {{--          </ul>--}}
                 {{--          <!-- Divider -->--}}
                 {{--          <hr class="my-3">--}}
                 {{--          <!-- Heading -->--}}
