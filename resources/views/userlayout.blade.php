@@ -29,18 +29,9 @@
         <div class="sk-child sk-bounce3"></div>
     </div>
 </div>
-<!--*******************
-    Preloader end
-********************-->
 
-<!--**********************************
-    Main wrapper start
-***********************************-->
 <div id="main-wrapper">
 
-    <!--**********************************
-        Nav header start
-    ***********************************-->
     <div class="nav-header">
         <a href="index.html" class="brand-logo">
             <svg class="logo-abbr" width="64px" height="64px">
@@ -851,231 +842,58 @@
                         <span class="nav-text">Dashboard</span>
                     </a>
                 </li>
+                <li>
+                    <a class="has-arrow ai-icon" href="#" aria-expanded="false">
+                        <i class="flaticon-381-television"></i>
+                        <span class="nav-text">Transfers</span>
+                    </a>
+                    <ul aria-expanded="false">
+                        <li><a href="#">InstagoBank</a></li>
+                        <li><a href="#">Foreign Transfer</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="ai-icon" href="#" aria-expanded="true">
+                        <i class="flaticon-381-controls-3"></i>
+                        <span class="nav-text">Deposits</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="ai-icon" href="#" aria-expanded="true">
+                        <i class="flaticon-381-controls-3"></i>
+                        <span class="nav-text">E-Withdraw</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="ai-icon" href="#" aria-expanded="true">
+                        <i class="flaticon-381-controls-3"></i>
+                        <span class="nav-text">Account Statement</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="ai-icon" href="#" aria-expanded="true">
+                        <i class="flaticon-381-controls-3"></i>
+                        <span class="nav-text">Save 4 Me</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="ai-icon" href="#" aria-expanded="true">
+                        <i class="flaticon-381-controls-3"></i>
+                        <span class="nav-text">PY Scheme</span>
+                    </a>
+                </li>
 
-                <li>
-                    <a class="has-arrow ai-icon" href="#" aria-expanded="false">
-                        <i class="flaticon-381-television"></i>
-                        <span class="nav-text">Transfer</span>
+                <li><a href="#" class="ai-icon" aria-expanded="false">
+                        <i class="flaticon-381-settings-2"></i>
+                        <span class="nav-text">Loan</span>
                     </a>
-                    <ul aria-expanded="false">
-                        <li><a href="{{ route('admin.ownbank') }}">Own bank</a></li>
-                        <li><a href="{{ route('admin.otherbank') }}">Other bank</a></li>
-                    </ul>
                 </li>
-            <!-- <li class="nav-item nav-item-submenu">
-							<a href="#" class="nav-link"><i class="icon-lan2"></i><span>Transfer</span></a>
-							<ul class="nav nav-group-sub" data-submenu-title="Transfer">
-								<li class="nav-item"><a href="{{route('admin.ownbank')}}" class="nav-link"><i class="icon-office"></i>Own bank</a></li>
-								<li class="nav-item"><a href="{{route('admin.otherbank')}}" class="nav-link"><i class="icon-city"></i>Other bank</a></li>
-							</ul>
-						</li>	 -->
-                <li>
-                    <a class="has-arrow ai-icon" href="#" aria-expanded="false">
-                        <i class="flaticon-381-settings"></i>
-                        <span class="nav-text">System config</span>
-                    </a>
-                    <ul aria-expanded="false">
-                        <li><a href="{{ route('admin.ownbank') }}">Settings</a></li>
-                        <li><a href="{{ route('admin.email') }}">Email</a></li>
-                        <li><a href="{{ route('admin.sms') }}">Sms</a></li>
-                        <li><a href="{{ route('admin.account') }}">Account information</a></li>
-                    </ul>
-                </li>
-            <!-- 	<li class="nav-item nav-item-submenu">
-							<a href="#" class="nav-link"><i class="icon-cogs spinner"></i> <span>System configuration</span></a>
-							<ul class="nav nav-group-sub" data-submenu-title="System configuration">
-								<li class="nav-item"><a href="{{route('admin.setting')}}" class="nav-link"><i class="icon-hammer-wrench"></i>Settings</a></li>
-								<li class="nav-item"><a href="{{route('admin.email')}}" class="nav-link"><i class="icon-envelope"></i>Email</a></li>
-								<li class="nav-item"><a href="{{route('admin.sms')}}" class="nav-link"><i class="icon-bubble"></i>Sms</a></li>
-								<li class="nav-item"><a href="{{route('admin.account')}}" class="nav-link"><i class="icon-user"></i>Account information</a></li>
-							</ul>
-						</li> -->
-                <li>
-                    <a class="has-arrow ai-icon" href="#" aria-expanded="false">
-                        <i class="flaticon-381-television"></i>
-                        <span class="nav-text">PY scheme</span>
-                    </a>
-                    <ul aria-expanded="false">
-                        <li><a href="{{route('admin.plan.create')}}">Create plan</a></li>
-                        <li><a href="{{ route('admin.py.plans') }}">Plans</a></li>
-                        <li><a href="{{ route('admin.py.completed') }}">Completed</a></li>
-                        <li><a href="{{ route('admin.py.pending') }}">Pending</a></li>
-                    </ul>
-                </li>
-            <!-- 	<li class="nav-item nav-item-submenu">
-							<a href="#" class="nav-link"><i class="icon-pulse2"></i> <span>PY scheme</span></a>
-							<ul class="nav nav-group-sub" data-submenu-title="PY scheme">
-								<li class="nav-item"><a href="{{route('admin.plan.create')}}" class="nav-link"><i class="icon-quill4"></i>Create plan</a></li>
-								<li class="nav-item"><a href="{{route('admin.py.plans')}}" class="nav-link"><i class="icon-puzzle4"></i>Plans</a></li>
-								<li class="nav-item"><a href="{{route('admin.py.completed')}}" class="nav-link"><i class="icon-cup2"></i>Completed</a></li>
-								<li class="nav-item"><a href="{{route('admin.py.pending')}}" class="nav-link"><i class="icon-spinner2 spinner"></i>Pending</a></li>
-							</ul>
-						</li>	 -->
-                <li>
-                    <a class="has-arrow ai-icon" href="#" aria-expanded="false">
-                        <i class="flaticon-381-networking"></i>
-                        <span class="nav-text">Loan managent</span>
-                    </a>
-                    <ul aria-expanded="false">
-                        <li><a href="{{ route('admin.loan.hold') }}">On hold</a></li>
-                        <li><a href="{{ route('admin.loan.pending') }}">Awaiting payback</a></li>
-                        <li><a href="{{ route('admin.loan.completed') }}">Completed</a></li>
-                    </ul>
-                </li>
-            <!-- 	<li class="nav-item nav-item-submenu">
-							<a href="#" class="nav-link"><i class="icon-snowflake"></i> <span>Loan management</span></a>
-							<ul class="nav nav-group-sub" data-submenu-title="Loan management">
-								<li class="nav-item"><a href="{{route('admin.loan.hold')}}" class="nav-link"><i class="icon-watch"></i>On hold</a></li>
-								<li class="nav-item"><a href="{{route('admin.loan.pending')}}" class="nav-link"><i class="icon-spinner2 spinner"></i>Awaiting payback</a></li>
-								<li class="nav-item"><a href="{{route('admin.loan.completed')}}" class="nav-link"><i class="icon-cup2"></i>Completed</a></li>
-							</ul>
-						</li> -->
-                <li>
-                    <a class="has-arrow ai-icon" href="#" aria-expanded="false">
-                        <i class="flaticon-381-television"></i>
-                        <span class="nav-text">Save 4 me</span>
-                    </a>
-                    <ul aria-expanded="false">
-                        <li><a href="{{ route('admin.save.completed') }}">Completed</a></li>
-                        <li><a href="{{ route('admin.save.pending') }}">On hold</a></li>
-                    </ul>
-                </li>
-            <!-- 		<li class="nav-item nav-item-submenu">
-							<a href="#" class="nav-link"><i class="icon-box"></i> <span>Save 4 me</span></a>
-							<ul class="nav nav-group-sub" data-submenu-title="Save 4 me">
-								<li class="nav-item"><a href="{{route('admin.save.completed')}}" class="nav-link"><i class="icon-cup2"></i>Completed</a></li>
-								<li class="nav-item"><a href="{{route('admin.save.pending')}}" class="nav-link"><i class="icon-spinner2 spinner"></i>On hold</a></li>
-							</ul>
-						</li> -->
-                <li>
-                    <a class="has-arrow ai-icon" href="#" aria-expanded="false">
-                        <i class="flaticon-381-television"></i>
-                        <span class="nav-text">User Managemt</span>
-                    </a>
-                    <ul aria-expanded="false">
-                        <li><a href="{{ route('admin.users') }}">Client accounts</a></li>
-                        <li><a href="{{ route('admin.ticket') }}">Support ticket</a></li>
-                        <li><a href="{{ route('user.promo') }}">Promotional Emails</a></li>
-                        <li><a href="{{ route('admin.message') }}">Messages</a></li>
-                    </ul>
-                </li>
-            <!-- 	<li class="nav-item nav-item-submenu">
-							<a href="#" class="nav-link"><i class="icon-user-plus"></i> <span>User Manangement</span></a>
 
-							<ul class="nav nav-group-sub" data-submenu-title="User Manangement">
-								<li class="nav-item"><a href="{{route('admin.users')}}" class="nav-link"><i class="icon-user"></i> Client accounts</a></li>
-								<li class="nav-item"><a href="{{route('admin.ticket')}}" class="nav-link"><i class="icon-bubbles5"></i>Support ticket</a></li>
-								<li class="nav-item"><a href="{{route('user.promo')}}" class="nav-link"><i class="icon-envelope"></i>Promotional Emails</a></li>
-								<li class="nav-item"><a href="{{route('admin.message')}}" class="nav-link"><i class="icon-bubbles5"></i>Messages</a></li>
-							</ul>
-						</li> -->
-                <li>
-                    <a class="has-arrow ai-icon" href="#" aria-expanded="false">
-                        <i class="flaticon-381-television"></i>
-                        <span class="nav-text">Deposit system</span>
+                <li><a href="widget-basic.html" class="ai-icon" aria-expanded="false">
+                        <i class="flaticon-381-settings-2"></i>
+                        <span class="nav-text">Bank & Card</span>
                     </a>
-                    <ul aria-expanded="false">
-                        <li><a href="{{ route('admin.deposit.method') }}">Payment gateways</a></li>
-                        <li><a href="{{ route('admin.banktransfer') }}">Bank transfer & logs</a></li>
-                        <li><a href="{{ route('admin.deposit.log') }}">Deposit log</a></li>
-                        <li><a href="{{ route('admin.deposit.pending') }}">Pending deposit</a></li>
-                        <li><a href="{{ route('admin.deposit.approved') }}">Approved deposit</a></li>
-                        <li><a href="{{ route('admin.deposit.declined') }}">Declined deposit</a></li>
-                    </ul>
                 </li>
-            <!-- 		<li class="nav-item nav-item-submenu">
-							<a href="#" class="nav-link"><i class="icon-credit-card"></i><span>Deposit system</span></a>
-							<ul class="nav nav-group-sub" data-submenu-title="Deposit">
-								<li class="nav-item"><a href="{{route('admin.deposit.method')}}" class="nav-link"><i class="icon-puzzle4"></i>Payment gateways</a></li>
-								<li class="nav-item"><a href="{{route('admin.banktransfer')}}" class="nav-link"><i class="icon-share2"></i>Bank transfer & logs</a></li>
-								<li class="nav-item"><a href="{{route('admin.deposit.log')}}" class="nav-link"><i class="icon-list-unordered"></i>Deposit log</a></li>
-								<li class="nav-item"><a href="{{route('admin.deposit.pending')}}" class="nav-link"><i class="icon-spinner2 spinner"></i>Pending deposit</a></li>
-								<li class="nav-item"><a href="{{route('admin.deposit.approved')}}" class="nav-link"><i class="icon-thumbs-up2"></i>Approved deposit</a></li>
-								<li class="nav-item"><a href="{{route('admin.deposit.declined')}}" class="nav-link"><i class="icon-thumbs-down2"></i>Declined deposit</a></li>
-							</ul>
-						</li> -->
-                <li>
-                    <a class="has-arrow ai-icon" href="#" aria-expanded="false">
-                        <i class="flaticon-381-television"></i>
-                        <span class="nav-text">Withdraw system</span>
-                    </a>
-                    <ul aria-expanded="false">
-                        <li><a href="{{ route('admin.withdraw.method') }}">Withdraw methods</a></li>
-                        <li><a href="{{ route('admin.withdraw.log') }}">Withdraw log</a></li>
-                        <li><a href="{{ route('admin.withdraw.unpaid') }}">Unpaid withdrawal</a></li>
-                        <li><a href="{{ route('admin.withdraw.approved') }}">Approved withdrawal</a></li>
-                        <li><a href="{{ route('admin.withdraw.declined') }}">Declined withdrawal</a></li>
-                    </ul>
-                </li>
-            <!-- 		<li class="nav-item nav-item-submenu">
-							<a href="#" class="nav-link"><i class="icon-share2"></i><span>Withdraw system</span></a>
-							<ul class="nav nav-group-sub" data-submenu-title="Withdraw">
-								<li class="nav-item"><a href="{{route('admin.withdraw.method')}}" class="nav-link"><i class="icon-puzzle4"></i>Withdraw methods</a></li>
-								<li class="nav-item"><a href="{{route('admin.withdraw.log')}}" class="nav-link"><i class="icon-list-unordered"></i>Withdraw log</a></li>
-								<li class="nav-item"><a href="{{route('admin.withdraw.unpaid')}}" class="nav-link"><i class="icon-spinner2 spinner"></i>Unpaid withdrawal</a></li>
-								<li class="nav-item"><a href="{{route('admin.withdraw.approved')}}" class="nav-link"><i class="icon-thumbs-up2"></i>Approved withdrawal</a></li>
-								<li class="nav-item"><a href="{{route('admin.withdraw.declined')}}" class="nav-link"><i class="icon-accessibility"></i>Declined withdrawal</a></li>
-							</ul>
-						</li> -->
-                <li>
-                    <a class="has-arrow ai-icon" href="#" aria-expanded="false">
-                        <i class="flaticon-381-television"></i>
-                        <span class="nav-text">News Section</span>
-                    </a>
-                    <ul aria-expanded="false">
-                        <li><a href="{{ route('blog.create') }}">New Post</a></li>
-                        <li><a href="{{ route('admin.blog') }}">Articles</a></li>
-                        <li><a href="{{ route('admin.cat') }}">Category</a></li>
-                    </ul>
-                </li>
-            <!-- 	<li class="nav-item nav-item-submenu">
-							<a href="#" class="nav-link"><i class="icon-magazine"></i> <span>News Section</span></a>
-							<ul class="nav nav-group-sub" data-submenu-title="News Section">
-								<li class="nav-item"><a href="{{route('blog.create')}}" class="nav-link"><i class="icon-quill4"></i>New Post</a></li>
-								<li class="nav-item"><a href="{{route('admin.blog')}}" class="nav-link"><i class="icon-newspaper"></i>Articles</a></li>
-								<li class="nav-item"><a href="{{route('admin.cat')}}"class="nav-link"><i class="icon-clipboard6"></i>Category</a></li>
-							</ul>
-						</li> -->
-                <li>
-                    <a class="has-arrow ai-icon" href="#" aria-expanded="false">
-                        <i class="flaticon-381-television"></i>
-                        <span class="nav-text">Web control</span>
-                    </a>
-                    <ul aria-expanded="false">
-                        <li><a href="{{route('homepage')}}">Homepage</a></li>
-                        <li><a href="{{route('admin.logo')}}">Logo & Favicon</a></li>
-                        <li><a href="{{route('admin.review')}}">Platform Review</a></li>
-                        <li><a href="{{route('admin.service')}}">Services</a></li>
-                        <li><a href="{{route('admin.brand')}}">Brands</a></li>
-                        <li><a href="{{route('admin.page')}}">Webpages</a></li>
-                        <li><a href="{{route('admin.currency')}}">Currency</a></li>
-                        <li><a href="{{route('admin.faq')}}">FAQs</a></li>
-                        <li><a href="{{route('admin.branch')}}">Branches</a></li>
-                        <li><a href="{{route('admin.terms')}}">Terms & Condition</a></li>
-                        <li><a href="{{route('privacy-policy')}}">Privacy policy</a></li>
-                        <li><a href="{{route('about-us')}}">About us</a></li>
-                        <li><a href="{{route('social-links')}}">Social Links</a></li>
-                    </ul>
-                </li>
-            <!-- 	<li class="nav-item nav-item-submenu">
-							<a href="#" class="nav-link"><i class="icon-home4"></i> <span>Web control</span></a>
-
-							<ul class="nav nav-group-sub" data-submenu-title="News Section">
-								<li class="nav-item"><a href="{{route('homepage')}}" class="nav-link"><i class="icon-home4"></i>Homepage</a></li>
-								<li class="nav-item"><a href="{{route('admin.logo')}}" class="nav-link"><i class="icon-image2"></i>Logo & Favicon</a></li>
-								<li class="nav-item"><a href="{{route('admin.review')}}"class="nav-link"><i class="icon-clipboard6"></i>Platform Review</a></li>
-								<li class="nav-item"><a href="{{route('admin.service')}}"class="nav-link"><i class="icon-accessibility"></i>Services</a></li>
-								<li class="nav-item"><a href="{{route('admin.brand')}}"class="nav-link"><i class="icon-images3"></i>Brands</a></li>
-								<li class="nav-item"><a href="{{route('admin.page')}}" class="nav-link"><i class="icon-stack"></i>Webpages</a></li>
-								<li class="nav-item"><a href="{{route('admin.currency')}}" class="nav-link"><i class="icon-coin-euro"></i>Currency</a></li>
-								<li class="nav-item"><a href="{{route('admin.faq')}}" class="nav-link"><i class="icon-question4"></i>FAQs</a></li>
-								<li class="nav-item"><a href="{{route('admin.branch')}}" class="nav-link"><i class="icon-home2"></i>Branches</a></li>
-								<li class="nav-item"><a href="{{route('admin.terms')}}" class="nav-link"><i class="icon-file-check"></i>Terms & Condition</a></li>
-								<li class="nav-item"><a href="{{route('privacy-policy')}}" class="nav-link"><i class="icon-file-check"></i>Privacy policy</a></li>
-								<li class="nav-item"><a href="{{route('about-us')}}" class="nav-link"><i class="icon-file-check"></i>About us</a></li>
-								<li class="nav-item"><a href="{{route('social-links')}}" class="nav-link"><i class="icon-share2"></i>Social Links</a></li>
-							</ul>
-						</li> -->
             </ul>
 
             <div class="copyright">
