@@ -6,7 +6,7 @@
             <a href="index.html"><img src="images/logo-full.png" alt=""></a>
         </div>
         <h4 class="text-center mb-4 text-white">Sign in your account</h4>
-        <form method="POST" action="{{ route('login') }}">
+        <form method="POST" action="{{route('submitlogin')}}">
             @csrf
             <div class="form-group">
                 <label for="email" class="mb-1 text-white"><strong>Email</strong></label>
