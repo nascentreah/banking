@@ -38,7 +38,7 @@
                                 <div class="col-lg-10">
                                 <input type="text" name="address" class="form-control" value="{{$bank->address}}">
                                 </div>
-                            </div>  
+                            </div>
                             <div class="form-group row">
                                 <label class="col-form-label col-lg-2">IBAN code:</label>
                                 <div class="col-lg-10">
@@ -56,7 +56,7 @@
                                 <div class="col-lg-10">
                                 <input type="number" name="acct_no" class="form-control" value="{{$bank->acct_no}}">
                                 </div>
-                            </div>  
+                            </div>
                             <div class="form-group row">
                                 <label class="col-form-label col-lg-2">Status <span class="text-danger">*</span></label>
                                 <div class="col-lg-10">
@@ -66,17 +66,17 @@
                                                 <input type="checkbox" name="status" class="form-check-input-switchery" value="1" checked>
                                             @else
                                                 <input type="checkbox" name="status" class="form-check-input-switchery" value="1">
-                                            @endif       
+                                            @endif
                                         </label>
                                     </div>
                                 </div>
-                            </div>               
+                            </div>
                             <div class="text-right">
-                                <button type="submit" class="btn bg-dark">Update<i class="icon-paperplane ml-2"></i></button>
+                                <button type="submit" class="btn btn-rounded btn-success">Update<i class="icon-paperplane ml-2"></i></button>
                             </div>
                         </form>
                     </div>
-                </div> 
+                </div>
                 <div class="card">
                     <div class="card-header header-elements-inline">
                         <h6 class="card-title font-weight-semibold">Bank transfer</h6>
@@ -87,11 +87,11 @@
                                 <tr>
                                     <th>S/N</th>
                                     <th>Name</th>
-                                    <th>Amount</th>                                                                       
+                                    <th>Amount</th>
                                     <th>Status</th>
                                     <th>Created</th>
                                     <th>Updated</th>
-                                    <th class="text-center">Action</th>    
+                                    <th class="text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -106,9 +106,9 @@
                                         @elseif($val->status==1)
                                             <span class="badge badge-success">Approved</span>
                                         @elseif($val->status==2)
-                                            <span class="badge badge-info">Declined</span> 
+                                            <span class="badge badge-info">Declined</span>
                                         @endif
-                                    </td>  
+                                    </td>
                                     <td>{{date("Y/m/d h:i:A", strtotime($val->created_at))}}</td>
                                     <td>{{date("Y/m/d h:i:A", strtotime($val->updated_at))}}</td>
                                     <td class="text-center">
@@ -128,12 +128,12 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </td>                   
+                                    </td>
                                 </tr>
                                 <div id="{{$val->id}}delete" class="modal fade" tabindex="-1">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
-                                            <div class="modal-header">   
+                                            <div class="modal-header">
                                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                                             </div>
                                             <div class="modal-body">
@@ -149,7 +149,7 @@
                                 <div id="{{$val->id}}details" class="modal fade" tabindex="-1">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
-                                            <div class="modal-header">   
+                                            <div class="modal-header">
                                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                                             </div>
                                             <div class="modal-body text-center">
@@ -160,11 +160,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>   
+                                </div>
                                 <div id="{{$val->id}}screenshot" class="modal fade" tabindex="-1">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
-                                            <div class="modal-header">   
+                                            <div class="modal-header">
                                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                                             </div>
                                             <div class="modal-body text-center">
@@ -173,8 +173,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                @endforeach               
-                            </tbody>                    
+                                @endforeach
+                            </tbody>
                         </table>
                     </div>
                 </div>
