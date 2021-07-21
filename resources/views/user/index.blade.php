@@ -174,7 +174,7 @@
                             @foreach($alert as $hh)
                                 <tr>
                                     <td>{{ $hh->reference }}</td>
-                                    <td><b>{{ date("Y/m/d", strtotime($hh->created_at)) }} </b><br/>
+                                    <td><b>{{ \Carbon\Carbon::parse($hh->created_at)->format('jS M Y')  }}</b><br/>
                                         <small class="text-gray">{{ date("h:i:A", strtotime($hh->created_at)) }}</small>
                                     </td>
                                     <td><b>${{ number_format($hh->amount) }}</b></td>
