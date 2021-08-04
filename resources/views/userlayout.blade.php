@@ -668,9 +668,7 @@
                 <div class="collapse navbar-collapse justify-content-between">
                     <div class="header-left">
                         <div class="dashboard_bar">
-                            <!-- Dashboard  -->
-                            Welcome back,
-                            <!--       Acct bal- $705,032,504.00 USD -->
+                            Welcome back, {{ Auth::user()->name }}
                         </div>
                     </div>
                     <ul class="navbar-nav header-right">

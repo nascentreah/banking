@@ -37,8 +37,6 @@ use Session;
 use Image;
 
 
-
-
 class UserController extends Controller
 {
 
@@ -49,23 +47,39 @@ class UserController extends Controller
 
     public function dashboard()
     {
+        $withdraws = Withdraw::query()
+                       ->select(['amount'])
+//                       ->count('*')
+                       ->where('user_id', Auth::user()->id)
+                       ->get();
+        $savings = Save::query()
+                       ->select(['amount'])
+                       ->where('user_id', Auth::user()->id)
+                       ->get();
+
         return view('user.index', [
             'title' => 'Dashboard',
-            's' => Auth::user()->suspend,
-            'm' => Auth::user()->suspend_msg
-
+            'withdraws' => $withdraws,
+            'savings' =>  $savings
+//            's' => Auth::user()->suspend,
+//            'm' => Auth::user()->suspend_msg
         ]);
     }
+
     public function save()
     {
         $s = Auth::user()->suspend;
         $m = Auth::user()->suspend_msg;
         if ($s) {
-            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: ".$m);
+            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: " . $m);
         }
-        $data['title'] = 'Save 4 Me';
-        $data['save'] = Save::whereUser_id(Auth::user()->id)->get();
-        return view('user.save', $data);
+
+        $save = Save::whereUser_id(Auth::user()->id)->get();
+
+        return view('user.save', [
+            'title' => 'Save 4 Me',
+            'save' => $save
+        ]);
     }
 
     public function branch()
@@ -82,18 +96,24 @@ class UserController extends Controller
         $s = Auth::user()->suspend;
         $m = Auth::user()->suspend_msg;
         if ($s) {
-            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: ".$m);
+            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: " . $m);
         }
-        $data['title'] = 'Merchant';
-        $data['merchant'] = Merchant::whereUser_id(Auth::user()->id)->get();
-        return view('user.merchant', $data);
+
+        $merchant = Merchant::whereUser_id(Auth::user()->id)->get();
+
+        return view('user.merchant', [
+            'title' => 'Merchant',
+            'merchant' => $merchant
+        ]);
     }
 
     public function ticket()
     {
-        $data['title'] = 'Tickets';
-        $data['ticket'] = Ticket::whereUser_id(Auth::user()->id)->get();
-        return view('user.ticket', $data);
+        $ticket = Ticket::whereUser_id(Auth::user()->id)->get();
+        return view('user.ticket', [
+            'title' => 'Tickets',
+            'ticket' => $ticket
+        ]);
     }
 
     public function loan()
@@ -101,12 +121,14 @@ class UserController extends Controller
         $s = Auth::user()->suspend;
         $m = Auth::user()->suspend_msg;
         if ($s) {
-            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: ".$m);
+            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: " . $m);
         }
-        $data['title'] = 'Loan management';
-        $data['loan'] = Loan::whereUser_id(Auth::user()->id)->get();
-        $data['bank'] = Bank::whereUser_id(Auth::user()->id)->first();
-        return view('user.loan', $data);
+
+        return view('user.loan', [
+            'title' => 'Loan management',
+            'loan' => Loan::whereUser_id(Auth::user()->id)->get(),
+            'bank' => Bank::whereUser_id(Auth::user()->id)->first()
+        ]);
     }
 
     public function statement()
@@ -114,7 +136,7 @@ class UserController extends Controller
         $s = Auth::user()->suspend;
         $m = Auth::user()->suspend_msg;
         if ($s) {
-            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: ".$m);
+            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: " . $m);
         }
         $data['title'] = 'Transaction history';
         return view('user.statement', $data);
@@ -125,7 +147,7 @@ class UserController extends Controller
         $s = Auth::user()->suspend;
         $m = Auth::user()->suspend_msg;
         if ($s) {
-            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: ".$m);
+            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: " . $m);
         }
         $data['title'] = 'Add merchant';
         return view('user.add-merchant', $data);
@@ -136,7 +158,7 @@ class UserController extends Controller
         $s = Auth::user()->suspend;
         $m = Auth::user()->suspend_msg;
         if ($s) {
-            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: ".$m);
+            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: " . $m);
         }
         $data['title'] = 'PY scheme';
         $data['plan'] = Plans::whereStatus(1)->orderBy('min_deposit', 'DESC')->get();
@@ -150,7 +172,7 @@ class UserController extends Controller
         $s = Auth::user()->suspend;
         $m = Auth::user()->suspend_msg;
         if ($s) {
-            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: ".$m);
+            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: " . $m);
         }
         $data['title'] = 'Fund account';
         $data['adminbank'] = Adminbank::whereId(1)->first();
@@ -165,7 +187,7 @@ class UserController extends Controller
         $s = Auth::user()->suspend;
         $m = Auth::user()->suspend_msg;
         if ($s) {
-            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: ".$m);
+            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: " . $m);
         }
         $data['title'] = 'Withdraw';
         $data['method'] = Withdrawm::whereStatus(1)->get();
@@ -178,7 +200,7 @@ class UserController extends Controller
         $s = Auth::user()->suspend;
         $m = Auth::user()->suspend_msg;
         if ($s) {
-            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: ".$m);
+            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: " . $m);
         }
         $data['title'] = 'Bank transfer';
         $data['bank'] = Adminbank::whereId(1)->first();
@@ -190,7 +212,7 @@ class UserController extends Controller
         $s = Auth::user()->suspend;
         $m = Auth::user()->suspend_msg;
         if ($s) {
-            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: ".$m);
+            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: " . $m);
         }
         $data['title'] = "Change Password";
         return view('user.password', $data);
@@ -201,7 +223,7 @@ class UserController extends Controller
         $s = Auth::user()->suspend;
         $m = Auth::user()->suspend_msg;
         if ($s) {
-            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: ".$m);
+            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: " . $m);
         }
         $data['title'] = "Change Pin";
         return view('user.pin', $data);
@@ -212,7 +234,7 @@ class UserController extends Controller
         $s = Auth::user()->suspend;
         $m = Auth::user()->suspend_msg;
         if ($s) {
-            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: ".$m);
+            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: " . $m);
         }
         $data['title'] = "Profile";
         return view('user.profile', $data);
@@ -223,7 +245,7 @@ class UserController extends Controller
         $s = Auth::user()->suspend;
         $m = Auth::user()->suspend_msg;
         if ($s) {
-            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: ".$m);
+            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: " . $m);
         }
         $data['title'] = "Own bank";
         return view('user.own_bank', $data);
@@ -242,11 +264,12 @@ class UserController extends Controller
         $s = Auth::user()->suspend;
         $m = Auth::user()->suspend_msg;
         if ($s) {
-            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: ".$m);
+            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: " . $m);
         }
         $data['title'] = "Other bank";
         return view('user.other_bank', $data);
     }
+
     public function authCheck()
     {
         if (Auth()->user()->status == '0' && Auth()->user()->email_verify == '1' && Auth()->user()->sms_verify == '1') {
@@ -331,7 +354,7 @@ class UserController extends Controller
         $s = Auth::user()->suspend;
         $m = Auth::user()->suspend_msg;
         if ($s) {
-            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: ".$m);
+            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: " . $m);
         }
         $user = $data['user'] = User::find(Auth::user()->id);
         $currency = Currency::whereStatus(1)->first();
@@ -366,7 +389,7 @@ class UserController extends Controller
         $s = Auth::user()->suspend;
         $m = Auth::user()->suspend_msg;
         if ($s) {
-            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: ".$m);
+            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: " . $m);
         }
         $user = $data['user'] = User::find(Auth::user()->id);
         if ($request->hasFile('image')) {
@@ -395,7 +418,7 @@ class UserController extends Controller
         $s = Auth::user()->suspend;
         $m = Auth::user()->suspend_msg;
         if ($s) {
-            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: ".$m);
+            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: " . $m);
         }
         $set = Settings::first();
         $currency = Currency::whereStatus(1)->first();
@@ -482,7 +505,7 @@ class UserController extends Controller
         $s = Auth::user()->suspend;
         $m = Auth::user()->suspend_msg;
         if ($s) {
-            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: ".$m);
+            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: " . $m);
         }
         $set = Settings::first();
         $amountx = $request->amount + $set->transfer_chargex;
@@ -541,7 +564,7 @@ class UserController extends Controller
         $s = Auth::user()->suspend;
         $m = Auth::user()->suspend_msg;
         if ($s) {
-            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: ".$m);
+            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: " . $m);
         }
         $user = $data['user'] = User::find(Auth::user()->id);
         $count = Bank::whereUser_id(Auth::user()->id)->count();
@@ -573,7 +596,7 @@ class UserController extends Controller
         $s = Auth::user()->suspend;
         $m = Auth::user()->suspend_msg;
         if ($s) {
-            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: ".$m);
+            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: " . $m);
         }
         $user = $data['user'] = User::find(Auth::user()->id);
         $date1 = strtotime($request->end_date);
@@ -610,7 +633,7 @@ class UserController extends Controller
         $s = Auth::user()->suspend;
         $m = Auth::user()->suspend_msg;
         if ($s) {
-            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: ".$m);
+            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: " . $m);
         }
         $set = $data['set'] = Settings::first();
         $amountx = ($request->amount * $set->collateral_percent) / 100;
@@ -640,10 +663,10 @@ class UserController extends Controller
         $s = Auth::user()->suspend;
         $m = Auth::user()->suspend_msg;
         if ($s) {
-            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: ".$m);
+            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: " . $m);
         }
         $data = Ticket::findOrFail($id);
-        $res =  $data->delete();
+        $res = $data->delete();
         if ($res) {
             return back()->with('success', 'Request was Successfully deleted!');
         } else {
@@ -681,7 +704,7 @@ class UserController extends Controller
         $s = Auth::user()->suspend;
         $m = Auth::user()->suspend_msg;
         if ($s) {
-            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: ".$m);
+            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: " . $m);
         }
         $set = $data['set'] = Settings::first();
         $currency = Currency::whereStatus(1)->first();
@@ -721,7 +744,7 @@ class UserController extends Controller
         $s = Auth::user()->suspend;
         $m = Auth::user()->suspend_msg;
         if ($s) {
-            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: ".$m);
+            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: " . $m);
         }
         $gate = Gateway::where('id', $request->gateway)->first();
         $user = User::find(Auth::user()->id);
@@ -753,7 +776,7 @@ class UserController extends Controller
         $s = Auth::user()->suspend;
         $m = Auth::user()->suspend_msg;
         if ($s) {
-            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: ".$m);
+            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: " . $m);
         }
         $track = Session::get('Track');
         $data['title'] = 'Deposit Preview';
@@ -766,7 +789,7 @@ class UserController extends Controller
         $s = Auth::user()->suspend;
         $m = Auth::user()->suspend_msg;
         if ($s) {
-            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: ".$m);
+            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: " . $m);
         }
         $loan = Loan::find($id);
         $user = User::where('id', $loan->user_id)->first();
@@ -787,14 +810,14 @@ class UserController extends Controller
         $s = Auth::user()->suspend;
         $m = Auth::user()->suspend_msg;
         if ($s) {
-            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: ".$m);
+            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: " . $m);
         }
         $currency = Currency::whereStatus(1)->first();
         $plan = Plans::find($request->plan_id);
         $duration = $plan->duration . ' ' . $plan->period;
         $profit = $request->amount * ($plan->percent / 100) * castrotime($duration);
         if ($request->amount > $plan->min_deposit || $request->amount == $plan->min_deposit) {
-            if ($request->amount < $plan->amount  || $request->amount == $plan->amount) {
+            if ($request->amount < $plan->amount || $request->amount == $plan->amount) {
                 return back()->with('success', number_format($profit) . $currency->name);
             } else {
                 return back()->with('alert', 'value is greater than maximum deposit');
@@ -809,7 +832,7 @@ class UserController extends Controller
         $s = Auth::user()->suspend;
         $m = Auth::user()->suspend_msg;
         if ($s) {
-            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: ".$m);
+            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: " . $m);
         }
         $plan = $data['plan'] = Plans::Where('id', $request->plan)->first();
         $user = User::find(Auth::user()->id);
@@ -818,7 +841,7 @@ class UserController extends Controller
             if ($user->upgrade != 0) {
                 if ($user->balance > $request->amount || $user->balance == $request->amount) {
                     if ($request->amount > $plan->min_deposit || $request->amount == $plan->min_deposit) {
-                        if ($request->amount < $plan->amount  || $request->amount == $plan->amount) {
+                        if ($request->amount < $plan->amount || $request->amount == $plan->amount) {
                             $sav['user_id'] = Auth::user()->id;
                             $sav['plan_id'] = $request->plan;
                             $sav['amount'] = $request->amount;
@@ -855,7 +878,7 @@ class UserController extends Controller
         $s = Auth::user()->suspend;
         $m = Auth::user()->suspend_msg;
         if ($s) {
-            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: ".$m);
+            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: " . $m);
         }
         $alert = Alerts::where('user_id', Auth::user()->id)->get();
         foreach ($alert as $alerts) {
@@ -864,12 +887,13 @@ class UserController extends Controller
         }
         return back()->with('success', 'Notifications have been cleared.');
     }
+
     public function upgrade()
     {
         $s = Auth::user()->suspend;
         $m = Auth::user()->suspend_msg;
         if ($s) {
-            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: ".$m);
+            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: " . $m);
         }
         $user = User::where('id', Auth::user()->id)->first();
         $set = Settings::first();
@@ -883,6 +907,7 @@ class UserController extends Controller
             return back()->with('alert', 'Insufficient balance, add more funds..');
         }
     }
+
     public function logout()
     {
         Auth::guard()->logout();
@@ -895,7 +920,7 @@ class UserController extends Controller
         $s = Auth::user()->suspend;
         $m = Auth::user()->suspend_msg;
         if ($s) {
-            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: ".$m);
+            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: " . $m);
         }
         $this->validate($request, [
             'current_pin' => 'required',
@@ -927,7 +952,7 @@ class UserController extends Controller
         $s = Auth::user()->suspend;
         $m = Auth::user()->suspend_msg;
         if ($s) {
-            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: ".$m);
+            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: " . $m);
         }
         $this->validate($request, [
             'current_password' => 'required',
@@ -960,7 +985,7 @@ class UserController extends Controller
         $s = Auth::user()->suspend;
         $m = Auth::user()->suspend_msg;
         if ($s) {
-            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: ".$m);
+            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: " . $m);
         }
         $user = User::findOrFail(Auth::user()->id);
         if ($request->hasFile('image')) {
@@ -985,7 +1010,7 @@ class UserController extends Controller
         $s = Auth::user()->suspend;
         $m = Auth::user()->suspend_msg;
         if ($s) {
-            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: ".$m);
+            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: " . $m);
         }
         $user = User::findOrFail(Auth::user()->id);
         if ($request->hasFile('image')) {
@@ -1007,12 +1032,13 @@ class UserController extends Controller
             return back()->with('success', 'An error occured, try again.');
         }
     }
+
     public function account(Request $request)
     {
         $s = Auth::user()->suspend;
         $m = Auth::user()->suspend_msg;
         if ($s) {
-            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: ".$m);
+            return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: " . $m);
         }
         $user = User::findOrFail(Auth::user()->id);
         $user->name = $request->name;

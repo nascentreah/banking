@@ -19,7 +19,7 @@
         $(document).ready(function () {
             $('#tbl_cashout_history').DataTable({
                 language: {
-                    emptyTable: "No transactions available",
+                    emptyTable: "No trasactions available",
                     info: "Showing _START_ to _END_ of _TOTAL_ transactions",
                     infoEmpty: "Showing 0 to 0 of 0 plans",
                     infoFiltered: "(filtered from _MAX_ total transactions)",
@@ -91,7 +91,7 @@
                         <div class="media-body">
                             <p class="mb-1">Credit</p>
                             <h4 class="mb-0">{{ $alert->count() }}</h4>
-                            {{--                            <span class="badge badge-primary">+3.5%</span>--}}
+{{--                                                        <span class="badge badge-primary">+3.5%</span>--}}
                         </div>
                     </div>
                 </div>
@@ -175,18 +175,15 @@
 
     <div class="row">
         <div class="col-xl-3 col-lg-6 col-sm-6">
-            <div class="widget-stat card bg-primary">
+            <div class="widget-stat card bg-success">
                 <div class="card-body  p-4">
                     <div class="media">
 									<span class="mr-3">
-										<i class="la la-users"></i>
+										<i class="la la-wallet"></i>
 									</span>
                         <div class="media-body text-white">
-                            <p class="mb-1">Total Withdraws</p>
-                            <h3 class="text-white">3280</h3>
-                            <div class="progress mb-2 bg-secondary">
-                                <div class="progress-bar progress-animated bg-light" style="width: 80%"></div>
-                            </div>
+                            <p class="mb-1">Total Deposits</p>
+                            <h3 class="text-white">$ {{ count($withdraws) }}</h3>
                             <small>80% Increase in 20 Days</small>
                         </div>
                     </div>
@@ -199,14 +196,11 @@
                 <div class="card-body p-4">
                     <div class="media">
 									<span class="mr-3">
-										<i class="la la-user"></i>
+										<i class="la la-shopping-bag"></i>
 									</span>
                         <div class="media-body text-white">
                             <p class="mb-1">Total Savings</p>
-                            <h3 class="text-white">5654333</h3>
-                            <div class="progress mb-2 bg-primary">
-                                <div class="progress-bar progress-animated bg-light" style="width: 50%"></div>
-                            </div>
+                            <h3 class="text-white">$ {{ count($savings) }}</h3>
                             <small>50% Increase in 25 Days</small>
                         </div>
                     </div>
@@ -219,14 +213,11 @@
                 <div class="card-body p-4">
                     <div class="media">
 									<span class="mr-3">
-										<i class="la la-graduation-cap"></i>
+										<i class="la la-arrow-circle-right"></i>
 									</span>
                         <div class="media-body text-white">
                             <p class="mb-1">Total Transfers</p>
                             <h3 class="text-white">28</h3>
-                            <div class="progress mb-2 bg-primary">
-                                <div class="progress-bar progress-animated bg-light" style="width: 76%"></div>
-                            </div>
                             <small>76% Increase in 20 Days</small>
                         </div>
                     </div>
@@ -241,11 +232,8 @@
 										<i class="la la-dollar"></i>
 									</span>
                         <div class="media-body text-white">
-                            <p class="mb-1">Fees Collect</p>
-                            <h3 class="text-white">250$</h3>
-                            <div class="progress mb-2 bg-secondary">
-                                <div class="progress-bar progress-animated bg-light" style="width: 30%"></div>
-                            </div>
+                            <p class="mb-1">Total Withdraws</p>
+                            <h3 class="text-white">$ {{ count($withdraws) }}</h3>
                             <small>30% Increase in 30 Days</small>
                         </div>
                     </div>
@@ -323,7 +311,7 @@
                             <div class="col-lg-12">
                                 <div class="input-group input-group-merge">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text">{{$currency->name}}</span>
+                                        <span class="input-group-text">{{ $currency->name }}</span>
                                     </div>
                                     <input type="number" step="any" name="amount" maxlength="10" class="form-control"
                                            required/>
@@ -335,12 +323,12 @@
                             <div class="col-lg-12">
                                 <select class="form-control select" name="coin" data-dropdown-css-class="bg-primary"
                                         data-fouc required>
-                                    {{--                                    @foreach($method as $val)--}}
-                                    {{--                                        <option value='{{$val->id}}'>{{$val->method}}</option>--}}
-                                    {{--                                        @if($set->bank_withdraw==1)--}}
-                                    {{--                                            <option value="bank">Bank</option>--}}
-                                    {{--                                        @endif--}}
-                                    {{--                                    @endforeach--}}
+{{--                                                                        @foreach($method as $val)--}}
+{{--                                                                            <option value='{{$val->id}}'>{{$val->method}}</option>--}}
+{{--                                                                            @if($set->bank_withdraw==1)--}}
+{{--                                                                                <option value="bank">Bank</option>--}}
+{{--                                                                            @endif--}}
+{{--                                                                        @endforeach--}}
                                 </select>
                             </div>
                         </div>
