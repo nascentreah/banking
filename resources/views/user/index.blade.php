@@ -133,7 +133,7 @@
 										<i class="la la-users"></i>
 									</span>
                         <div class="media-body text-white">
-                            <p class="mb-1">Total Students</p>
+                            <p class="mb-1">Total Withdraws</p>
                             <h3 class="text-white">3280</h3>
                             <div class="progress mb-2 bg-secondary">
                                 <div class="progress-bar progress-animated bg-light" style="width: 80%"></div>
@@ -153,7 +153,7 @@
 										<i class="la la-user"></i>
 									</span>
                         <div class="media-body text-white">
-                            <p class="mb-1">Total Loans</p>
+                            <p class="mb-1">Total Savings</p>
                             <h3 class="text-white">5654333</h3>
                             <div class="progress mb-2 bg-primary">
                                 <div class="progress-bar progress-animated bg-light" style="width: 50%"></div>
@@ -173,7 +173,7 @@
 										<i class="la la-graduation-cap"></i>
 									</span>
                         <div class="media-body text-white">
-                            <p class="mb-1">Total Course</p>
+                            <p class="mb-1">Total Transfers</p>
                             <h3 class="text-white">28</h3>
                             <div class="progress mb-2 bg-primary">
                                 <div class="progress-bar progress-animated bg-light" style="width: 76%"></div>
@@ -330,7 +330,7 @@
                             </div>
                         </div>
                         <div class="text-right">
-                            <button type="submit" class="btn rounded mb-2 btn-success">Withdraw</button>
+                            <button type="submit" class="btn rounded mb-2 btn-primary">Withdraw</button>
                         </div>
                     </form>
                 </div>
