@@ -48,21 +48,22 @@ class UserController extends Controller
     public function dashboard()
     {
         $withdraws = Withdraw::query()
-                       ->select(['amount'])
-//                       ->count('*')
-                       ->where('user_id', Auth::user()->id)
-                       ->get();
+            ->select(['amount'])
+            ->where('user_id', Auth::user()->id)
+            ->get();
+
         $savings = Save::query()
-                       ->select(['amount'])
-                       ->where('user_id', Auth::user()->id)
-                       ->get();
+            ->select(['amount'])
+            ->where('user_id', Auth::user()->id)
+            ->get();
+
+        $methods = Withdrawm::where('status', 1)->get();
 
         return view('user.index', [
             'title' => 'Dashboard',
             'withdraws' => $withdraws,
-            'savings' =>  $savings
-//            's' => Auth::user()->suspend,
-//            'm' => Auth::user()->suspend_msg
+            'savings' => $savings,
+            'methods' => $methods
         ]);
     }
 
@@ -110,6 +111,7 @@ class UserController extends Controller
     public function ticket()
     {
         $ticket = Ticket::whereUser_id(Auth::user()->id)->get();
+
         return view('user.ticket', [
             'title' => 'Tickets',
             'ticket' => $ticket
@@ -124,10 +126,14 @@ class UserController extends Controller
             return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: " . $m);
         }
 
+        $loan = Loan::whereUser_id(Auth::user()->id)->get();
+
+        $bank = Bank::whereUser_id(Auth::user()->id)->first();
+
         return view('user.loan', [
             'title' => 'Loan management',
-            'loan' => Loan::whereUser_id(Auth::user()->id)->get(),
-            'bank' => Bank::whereUser_id(Auth::user()->id)->first()
+            'loan' => $loan,
+            'bank' => $bank
         ]);
     }
 
@@ -160,11 +166,17 @@ class UserController extends Controller
         if ($s) {
             return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: " . $m);
         }
-        $data['title'] = 'PY scheme';
-        $data['plan'] = Plans::whereStatus(1)->orderBy('min_deposit', 'DESC')->get();
-        $data['profit'] = Profits::whereUser_id(Auth::user()->id)->orderBy('id', 'DESC')->get();
-        $data['datetime'] = Carbon::now();
-        return view('user.plans', $data);
+
+        $plan = Plans::whereStatus(1)->orderBy('min_deposit', 'DESC')->get();
+        $profit = Profits::whereUser_id(Auth::user()->id)->orderBy('id', 'DESC')->get();
+        $datetime = Carbon::now();
+        
+        return view('user.plans', [
+            'title' => 'PY scheme',
+            'plan' => $plan,
+            'profit' => $profit,
+            'datetime' => $datetime
+        ]);
     }
 
     public function fund()

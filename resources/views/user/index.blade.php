@@ -91,7 +91,7 @@
                         <div class="media-body">
                             <p class="mb-1">Credit</p>
                             <h4 class="mb-0">{{ $alert->count() }}</h4>
-{{--                                                        <span class="badge badge-primary">+3.5%</span>--}}
+                            {{--                                                        <span class="badge badge-primary">+3.5%</span>--}}
                         </div>
                     </div>
                 </div>
@@ -323,12 +323,12 @@
                             <div class="col-lg-12">
                                 <select class="form-control select" name="coin" data-dropdown-css-class="bg-primary"
                                         data-fouc required>
-{{--                                                                        @foreach($method as $val)--}}
-{{--                                                                            <option value='{{$val->id}}'>{{$val->method}}</option>--}}
-{{--                                                                            @if($set->bank_withdraw==1)--}}
-{{--                                                                                <option value="bank">Bank</option>--}}
-{{--                                                                            @endif--}}
-{{--                                                                        @endforeach--}}
+                                    @foreach($methods as $method)
+                                        <option value='{{$method->id}}'>{{$method->method}}</option>
+                                        @if($set->bank_withdraw==1)
+                                            <option value="bank">Bank</option>
+                                        @endif
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
