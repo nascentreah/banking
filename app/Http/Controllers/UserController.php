@@ -49,10 +49,12 @@ class UserController extends Controller
 
     public function dashboard()
     {
-        $data['title'] = 'Dashboard';
-        $data['s'] = Auth::user()->suspend;
-        $data['m'] = Auth::user()->suspend_msg;
-        return view('user.index', $data);
+        return view('user.index', [
+            'title' => 'Dashboard',
+            's' => Auth::user()->suspend,
+            'm' => Auth::user()->suspend_msg
+
+        ]);
     }
     public function save()
     {
@@ -68,9 +70,11 @@ class UserController extends Controller
 
     public function branch()
     {
-        $data['title'] = 'Bank branches';
-        $data['branch'] = Branch::all();
-        return view('user.branch', $data);
+        $branches = Branch::all();
+        return view('user.branch', [
+            'title' => 'Bank branches',
+            'branch' => $branches
+        ]);
     }
 
     public function merchant()
