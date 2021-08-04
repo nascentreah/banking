@@ -170,7 +170,7 @@ class UserController extends Controller
         $plan = Plans::whereStatus(1)->orderBy('min_deposit', 'DESC')->get();
         $profit = Profits::whereUser_id(Auth::user()->id)->orderBy('id', 'DESC')->get();
         $datetime = Carbon::now();
-        
+
         return view('user.plans', [
             'title' => 'PY scheme',
             'plan' => $plan,
@@ -214,9 +214,13 @@ class UserController extends Controller
         if ($s) {
             return redirect()->action([UserController::class, "dashboard"])->with('alert', "Account Suspended: " . $m);
         }
-        $data['title'] = 'Bank transfer';
-        $data['bank'] = Adminbank::whereId(1)->first();
-        return view('user.bank_transfer', $data);
+
+        $bank = Adminbank::whereId(1)->first();
+
+        return view('user.bank_transfer', [
+            'title' => 'Bank transfer',
+            'bank' => $bank
+        ]);
     }
 
     public function changePassword()
@@ -265,10 +269,14 @@ class UserController extends Controller
 
     public function Replyticket($id)
     {
-        $data['ticket'] = $ticket = Ticket::find($id);
-        $data['title'] = '#' . $ticket->ticket_id;
-        $data['reply'] = Reply::whereTicket_id($ticket->ticket_id)->get();
-        return view('user.reply-ticket', $data);
+        $ticket = $ticket = Ticket::find($id);
+        $title = '#' . $ticket->ticket_id;
+        $reply = Reply::whereTicket_id($ticket->ticket_id)->get();
+        return view('user.reply-ticket', [
+            'title' => $title,
+            'ticket' => $ticket,
+            'reply' => $reply
+        ]);
     }
 
     public function otherbank()

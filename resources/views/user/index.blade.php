@@ -74,25 +74,72 @@
             </div>
         </div>
 
-        <div class="col-xl-4 col-lg-6 col-sm-6">
-            <div class="widget-stat card">
-                <div class="card-body p-4">
-                    <div class="media ai-icon">
-									<span class="mr-3 bgl-primary text-primary">
-										<!-- <i class="ti-user"></i> -->
-										<svg id="icon-customers" xmlns="http://www.w3.org/2000/svg" width="30"
-                                             height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                             class="feather feather-user">
-											<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-											<circle cx="12" cy="7" r="4"></circle>
-										</svg>
-									</span>
-                        <div class="media-body">
-                            <p class="mb-1">Credit</p>
-                            <h4 class="mb-0">{{ $alert->count() }}</h4>
-                            {{--                                                        <span class="badge badge-primary">+3.5%</span>--}}
+        <div class="col-xl-4">
+            <div class="card">
+                <div class="card-header border-0 pb-0">
+                    <h4 class="fs-20 text-black">Profile Strength</h4>
+
+                    <div class="dropdown custom-dropdown mb-0">
+                        <div class="btn sharp btn-primary tp-btn" data-toggle="dropdown">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 xmlns:xlink="http://www.w3.org/1999/xlink" width="18px"
+                                 height="18px" viewBox="0 0 24 24" version="1.1">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <rect x="0" y="0" width="24" height="24"></rect>
+                                    <circle fill="#000000" cx="12" cy="5" r="2"></circle>
+                                    <circle fill="#000000" cx="12" cy="12" r="2"></circle>
+                                    <circle fill="#000000" cx="12" cy="19" r="2"></circle>
+                                </g>
+                            </svg>
                         </div>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href="javascript:void(0);">Details</a>
+                            <a class="dropdown-item text-danger"
+                               href="javascript:void(0);">Cancel</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body pt-0">
+                    <div id="stackedChart"></div>
+                    <div class="d-flex mb-3 align-items-center">
+                        <div>
+                            <svg class="mr-3 min-w32" width="32" height="23" viewBox="0 0 32 23" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <rect width="32" height="23" rx="11.5" fill="#2BC155"></rect>
+                            </svg>
+                            <span class="fs-14">Aplication Sent</span>
+                        </div>
+                        <span class="fs-18 text-black ml-auto font-w600">30%</span>
+                    </div>
+                    <div class="d-flex mb-3 align-items-center">
+                        <div>
+                            <svg class="mr-3 min-w32" width="32" height="23" viewBox="0 0 32 23" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <rect width="32" height="23" rx="11.5" fill="#FF9B52"></rect>
+                            </svg>
+                            <span class="fs-14">Appllication Answered</span>
+                        </div>
+                        <span class="fs-18 text-black ml-auto font-w600">46%</span>
+                    </div>
+                    <div class="d-flex mb-3 align-items-center">
+                        <div>
+                            <svg class="mr-3 min-w32" width="32" height="23" viewBox="0 0 32 23" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <rect width="32" height="23" rx="11.5" fill="#3F9AE0"></rect>
+                            </svg>
+                            <span class="fs-14">Hired</span>
+                        </div>
+                        <span class="fs-18 text-black ml-auto font-w600">14%</span>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <div>
+                            <svg class="mr-3 min-w32" width="32" height="23" viewBox="0 0 32 23" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <rect width="32" height="23" rx="11.5" fill="#C4C4C4"></rect>
+                            </svg>
+                            <span class="fs-14">Pending</span>
+                        </div>
+                        <span class="fs-18 text-black ml-auto font-w600">10%</span>
                     </div>
                 </div>
             </div>
@@ -300,7 +347,7 @@
         </div>
         <div class="col-md-4">
             <div class="card">
-                <div class="card-header flex-wrap pb-0">
+                <div class="card-header">
                     <h4 class="card-title">Make Withdraws</h4>
                 </div>
                 <div class="card-body">

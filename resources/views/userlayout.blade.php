@@ -668,7 +668,7 @@
                 <div class="collapse navbar-collapse justify-content-between">
                     <div class="header-left">
                         <div class="dashboard_bar">
-                            Welcome back, {{ Auth::user()->name }}
+                            Welcome back, {{ title_case(Auth::user()->name) }}
                         </div>
                     </div>
                     <ul class="navbar-nav header-right">
@@ -781,7 +781,7 @@
                             <a class="nav-link" href="javascript:void(0)" role="button" data-toggle="dropdown">
                                 <div class="header-info">
                                     <span
-                                        class="text-black"><strong>test</strong></span>
+                                        class="text-black"><strong>{{ title_case(Auth::user()->name) }}</strong></span>
                                     <p class="fs-12 mb-0">Super Admin</p>
                                 </div>
                                 <img src="images/profile/17.jpg" width="20" alt=""/>
