@@ -656,8 +656,8 @@
         </div>
     </div>
     <!--**********************************
-        Chat box End
-    ***********************************-->
+            Chat box End
+        ***********************************-->
 
     <!--**********************************
         Header start
@@ -777,6 +777,7 @@
                                 <span class="badge light text-white bg-primary">3</span>
                             </a>
                         </li>
+
                         <li class="nav-item dropdown header-profile">
                             <a class="nav-link" href="javascript:void(0)" role="button" data-toggle="dropdown">
                                 <div class="header-info">
@@ -784,17 +785,37 @@
                                         class="text-black"><strong>{{ title_case(Auth::user()->name) }}</strong></span>
                                     <p class="fs-12 mb-0">Super Admin</p>
                                 </div>
-                                <img src="images/profile/17.jpg" width="20" alt=""/>
+                                <img src="{{ asset('images/profile/17.jpg') }}" width="20" alt=""/>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
-                                <a href="{{ route('admin.account') }}" class="dropdown-item ai-icon">
+
+                                <a href="{{ route('user.profile') }}" class="dropdown-item ai-icon">
                                     <svg id="icon-user1" xmlns="http://www.w3.org/2000/svg" class="text-primary"
                                          width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                                         <circle cx="12" cy="7" r="4"></circle>
                                     </svg>
-                                    <span class="ml-2">Account information </span>
+                                    <span class="ml-2">My profile </span>
+                                </a>
+
+                                <a href="{{route('user.password')}}" class="dropdown-item">
+                                    <svg id="icon-user1" xmlns="http://www.w3.org/2000/svg" class="text-primary"
+                                         width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="12" cy="7" r="4"></circle>
+                                    </svg>
+                                    <span>Password</span>
+                                </a>
+                                <a href="{{route('user.pin')}}" class="dropdown-item">
+                                    <svg id="icon-user1" xmlns="http://www.w3.org/2000/svg" class="text-primary"
+                                         width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="12" cy="7" r="4"></circle>
+                                    </svg>
+                                    <span>Transfer pin</span>
                                 </a>
 
                                 <a href="{{ route('admin.logout') }}" class="dropdown-item ai-icon">
@@ -810,6 +831,8 @@
 
                             </div>
                         </li>
+
+
                     </ul>
                 </div>
             </nav>
@@ -858,7 +881,7 @@
                     </a>
                     <ul aria-expanded="false">
                         <li class="nav-item text-default">
-                        <li><a href="{{ route('user.ownbank') }}">{{$set->site_name}}</a></li>
+                        <li><a href="{{ route('user.ownbank') }}">{{ $set->site_name }}</a></li>
                         <li><a href="{{ route('user.otherbank') }}">Foreign Transfer</a></li>
                     </ul>
                 </li>
@@ -898,7 +921,6 @@
                 @endif
                 @if($set->loan==1)
                     <li>
-
                         <a href="{{ route('user.loan') }}" class="ai-icon" aria-expanded="false">
                             <i class="flaticon-381-settings-2"></i>
                             <span class="nav-text">Loan</span>
@@ -915,14 +937,13 @@
             </ul>
 
             <div class="copyright">
-                <p><strong>Qerza Job Portal Admin Dashboard</strong> © 2020 All Rights Reserved</p>
+                <p><strong>{{ $set->site_name }}</strong> © {{ date('Y')}} All Rights Reserved</p>
                 <p>Made with <span class="heart"></span> by DexignZone</p>
             </div>
         </div>
     </div>
 
     <div class="content-body">
-        <!-- row -->
         <div class="container-fluid">
             @yield('content')
         </div>
@@ -930,8 +951,8 @@
 
     <div class="footer">
         <div class="copyright">
-            <p>Copyright © Designed &amp; Developed by <a href="http://dexignzone.com/" target="_blank">DexignZone</a>
-                2020</p>
+            <p>Copyright © Designed &amp; Developed by <a href="http://dexignzone.com/"
+                                                          target="_blank">{{ $set->site_name }} </a> {{ date('Y') }}</p>
         </div>
     </div>
 
@@ -942,14 +963,8 @@
 <script src="{{ asset('vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
 <script src="{{ asset('vendor/chart.js/Chart.bundle.min.js') }}"></script>
 <script src="{{ asset('vendor/owl-carousel/owl.carousel.js') }}"></script>
-
-<!-- Chart piety plugin files -->
 <script src="{{ asset('vendor/peity/jquery.peity.min.js') }}"></script>
-
-<!-- Apex Chart -->
 <script src="{{ asset('vendor/apexchart/apexchart.js') }}"></script>
-
-<!-- Dashboard 1 -->
 <script src="{{ asset('js/dashboard/dashboard-1.js') }}"></script>
 <script src="{{ asset('js/custom.min.js') }}"></script>
 <script src="{{ asset('js/deznav-init.js') }}"></script>
@@ -1145,18 +1160,6 @@
 {{--                <span class="nav-link-text">Deposit</span>--}}
 {{--              </a>--}}
 {{--            </li> --}}
-{{--           <li class="nav-item">--}}
-{{--              <a class="nav-link text-default" href="{{route('user.withdraw')}}">--}}
-{{--                <i class="ni ni-bag-17"></i>--}}
-{{--                <span class="nav-link-text">E-withdraw</span>--}}
-{{--              </a>--}}
-{{--            </li>--}}
-{{--             <li class="nav-item">--}}
-{{--              <a class="nav-link text-default" href="{{route('user.statement')}}">--}}
-{{--                <i class="ni ni-collection"></i>--}}
-{{--                <span class="nav-link-text">Account statement</span>--}}
-{{--              </a>--}}
-{{--            </li> --}}
 {{--            @if($set->save==1)--}}
 {{--            <li class="nav-item">--}}
 {{--              <a class="nav-link text-default" href="{{route('user.save')}}">--}}
@@ -1165,22 +1168,6 @@
 {{--              </a>--}}
 {{--            </li>--}}
 {{--            @endif--}}
-{{--            @if($set->py_scheme==1)--}}
-{{--            <li class="nav-item">--}}
-{{--              <a class="nav-link text-default" href="{{route('user.plans')}}">--}}
-{{--                <i class="ni ni-chart-bar-32"></i>--}}
-{{--                <span class="nav-link-text">PY scheme</span>--}}
-{{--              </a>--}}
-{{--            </li>--}}
-{{--            @endif--}}
-{{--            @if($set->loan==1)--}}
-{{--            <li class="nav-item">--}}
-{{--              <a class="nav-link text-default" href="{{route('user.loan')}}">--}}
-{{--                <i class="ni ni-atom"></i>--}}
-{{--                <span class="nav-link-text">Loan</span>--}}
-{{--              </a>--}}
-{{--            </li> --}}
-{{--            @endif           --}}
 {{--          </ul>--}}
 {{--          <!-- Divider -->--}}
 {{--          <hr class="my-3">--}}

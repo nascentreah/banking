@@ -11,8 +11,6 @@
     rel="stylesheet">
 
 @push('extra-js')
-    <script src="{{ asset('vendor/global/global.min.js') }}"></script>
-    <script src="{{ asset('vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
     <script src="{{ asset('vendor/chart.js/Chart.bundle.min.js') }}"></script>
     <script src="{{ asset('js/plugins-init/chartjs-init.js') }}"></script>
 
@@ -21,7 +19,6 @@
     <script src="{{ asset('js/plugins-init/datatables.init.js') }}"></script>
     <script src="{{ asset('js/dashboard/statistics.js') }}"></script>
     <script src="{{ asset('js/dashboard/dashboard-1.js') }}"></script>
-    <script src="{{ asset('js/custom.min.js') }}"></script>
     <script src="{{ asset('js/deznav-init.js') }}"></script>
     <script src="{{ asset('js/demo.js') }}"></script>
     <script src="{{ asset('js/styleSwitcher.js') }}"></script>

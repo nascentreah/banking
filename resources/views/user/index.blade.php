@@ -8,13 +8,9 @@
     rel="stylesheet">
 
 @push('extra-js')
-    <script src="{{ asset('vendor/global/global.min.js') }}"></script>
-    <script src="{{ asset('vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
-
     <!-- Datatable -->
     <script src="{{ asset('vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('js/plugins-init/datatables.init.js') }}"></script>
-    <script src="{{ asset('js/custom.min.js') }}"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $('#tbl_cashout_history').DataTable({
@@ -53,7 +49,7 @@
                     <small class="text-white">My Balance</small>
                     <small class="text-white">&nbsp;</small>
                     <small class="text-white">&nbsp;</small>
-                    <p class="text-white pull-right">BINANCEMERCHANT PAY</p>
+                    <p class="text-white pull-right">{{ $set->site_name }}</p>
                     <h5 class="card-title text-white">
                         ${{number_format($user->balance, 2,".",",")}}
                     </h5>
@@ -304,7 +300,7 @@
                                 <th>Date</th>
                                 <th>Amount</th>
                                 <th>Status</th>
-{{--                                <th>Action</th>--}}
+                                <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -316,27 +312,6 @@
                                     </td>
                                     <td><b>${{ number_format($hh->amount) }}</b></td>
                                     <td><span class="badge badge-success">Successful</span></td>
-{{--                                    <td>--}}
-{{--                                        <div class="dropdown custom-dropdown mb-0">--}}
-{{--                                            <div class="btn sharp btn-primary tp-btn" data-toggle="dropdown">--}}
-{{--                                                <svg xmlns="http://www.w3.org/2000/svg"--}}
-{{--                                                     xmlns:xlink="http://www.w3.org/1999/xlink" width="18px"--}}
-{{--                                                     height="18px" viewBox="0 0 24 24" version="1.1">--}}
-{{--                                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">--}}
-{{--                                                        <rect x="0" y="0" width="24" height="24"></rect>--}}
-{{--                                                        <circle fill="#000000" cx="12" cy="5" r="2"></circle>--}}
-{{--                                                        <circle fill="#000000" cx="12" cy="12" r="2"></circle>--}}
-{{--                                                        <circle fill="#000000" cx="12" cy="19" r="2"></circle>--}}
-{{--                                                    </g>--}}
-{{--                                                </svg>--}}
-{{--                                            </div>--}}
-{{--                                            <div class="dropdown-menu dropdown-menu-right">--}}
-{{--                                                <a class="dropdown-item" href="javascript:void(0);">Details</a>--}}
-{{--                                                <a class="dropdown-item text-danger"--}}
-{{--                                                   href="javascript:void(0);">Cancel</a>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </td>--}}
                                 </tr>
                             @endforeach
                             </tbody>

@@ -8,13 +8,9 @@
     rel="stylesheet">
 
 @push('extra-js')
-    <script src="{{ asset('vendor/global/global.min.js') }}"></script>
-    <script src="{{ asset('vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
-
     <!-- Datatable -->
     <script src="{{ asset('vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('js/plugins-init/datatables.init.js') }}"></script>
-    <script src="{{ asset('js/custom.min.js') }}"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $('#tbl_deposit_logs').DataTable({
