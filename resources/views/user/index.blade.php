@@ -290,7 +290,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-xl-8 col-lg-8 col-xxl-8 col-sm-8">
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">Latest Transaction</h4>
@@ -304,7 +304,7 @@
                                 <th>Date</th>
                                 <th>Amount</th>
                                 <th>Status</th>
-                                <th>Action</th>
+{{--                                <th>Action</th>--}}
                             </tr>
                             </thead>
                             <tbody>
@@ -315,28 +315,28 @@
                                         <small class="text-gray">{{ date("h:i:A", strtotime($hh->created_at)) }}</small>
                                     </td>
                                     <td><b>${{ number_format($hh->amount) }}</b></td>
-                                    <td><span class="badge light badge-success">Successful</span></td>
-                                    <td>
-                                        <div class="dropdown custom-dropdown mb-0">
-                                            <div class="btn sharp btn-primary tp-btn" data-toggle="dropdown">
-                                                <svg xmlns="http://www.w3.org/2000/svg"
-                                                     xmlns:xlink="http://www.w3.org/1999/xlink" width="18px"
-                                                     height="18px" viewBox="0 0 24 24" version="1.1">
-                                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                        <rect x="0" y="0" width="24" height="24"></rect>
-                                                        <circle fill="#000000" cx="12" cy="5" r="2"></circle>
-                                                        <circle fill="#000000" cx="12" cy="12" r="2"></circle>
-                                                        <circle fill="#000000" cx="12" cy="19" r="2"></circle>
-                                                    </g>
-                                                </svg>
-                                            </div>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" href="javascript:void(0);">Details</a>
-                                                <a class="dropdown-item text-danger"
-                                                   href="javascript:void(0);">Cancel</a>
-                                            </div>
-                                        </div>
-                                    </td>
+                                    <td><span class="badge badge-success">Successful</span></td>
+{{--                                    <td>--}}
+{{--                                        <div class="dropdown custom-dropdown mb-0">--}}
+{{--                                            <div class="btn sharp btn-primary tp-btn" data-toggle="dropdown">--}}
+{{--                                                <svg xmlns="http://www.w3.org/2000/svg"--}}
+{{--                                                     xmlns:xlink="http://www.w3.org/1999/xlink" width="18px"--}}
+{{--                                                     height="18px" viewBox="0 0 24 24" version="1.1">--}}
+{{--                                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">--}}
+{{--                                                        <rect x="0" y="0" width="24" height="24"></rect>--}}
+{{--                                                        <circle fill="#000000" cx="12" cy="5" r="2"></circle>--}}
+{{--                                                        <circle fill="#000000" cx="12" cy="12" r="2"></circle>--}}
+{{--                                                        <circle fill="#000000" cx="12" cy="19" r="2"></circle>--}}
+{{--                                                    </g>--}}
+{{--                                                </svg>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="dropdown-menu dropdown-menu-right">--}}
+{{--                                                <a class="dropdown-item" href="javascript:void(0);">Details</a>--}}
+{{--                                                <a class="dropdown-item text-danger"--}}
+{{--                                                   href="javascript:void(0);">Cancel</a>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </td>--}}
                                 </tr>
                             @endforeach
                             </tbody>
