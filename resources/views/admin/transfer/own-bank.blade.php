@@ -75,10 +75,10 @@
                                     <td>{{++$k}}.</td>
                                     <td>{{$val->ref_id}}</td>
                                     <td>
-                                        <a href="{{url('admin/manage-user')}}/{{$val->sender['id']}}">{{$val->sender['id']}}</a>
+                                        <a href="{{url('admin/manage-user')}}/{{ $val->sender_id }}">{{ $val->sender_id }}</a>
                                     </td>
                                     <td>
-                                        <a href="{{url('admin/manage-user')}}/{{$val->receiver['id']}}">{{$val->receiver['id']}}</a>
+                                        <a href="{{url('admin/manage-user')}}/{{ $val->receiver_id }}">{{ $val->receiver_id }}</a>
                                     </td>
                                     <td>{{number_format($val->amount).$currency->name}}</td>
                                     <td>
