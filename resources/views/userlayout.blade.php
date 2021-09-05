@@ -934,6 +934,22 @@
                     </a>
                 </li>
 
+                <h6 class="navbar-heading p-0 text-muted">More</h6>
+
+                <li>
+                    <a href="{{ route('user.branch') }}" class="ai-icon" aria-expanded="false">
+                        <i class="flaticon-381-settings-2"></i>
+                        <span class="nav-text">Branches</span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="{{ route('user.ticket') }}" class="ai-icon" aria-expanded="false">
+                        <i class="flaticon-381-settings-2"></i>
+                        <span class="nav-text">Support ticket</span>
+                    </a>
+                </li>
             </ul>
 
             <div class="copyright">
