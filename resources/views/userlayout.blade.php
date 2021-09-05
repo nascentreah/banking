@@ -818,7 +818,7 @@
                                     <span>Transfer pin</span>
                                 </a>
 
-                                <a href="{{ route('admin.logout') }}" class="dropdown-item ai-icon">
+                                <a href="{{ route('user.logout') }}" class="dropdown-item ai-icon">
                                     <svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" class="text-danger"
                                          width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -831,8 +831,6 @@
 
                             </div>
                         </li>
-
-
                     </ul>
                 </div>
             </nav>
@@ -951,6 +949,13 @@
                     </a>
                 </li>
             </ul>
+
+{{--            <li class="nav-item">--}}
+{{--                <a class="nav-link text-default" href="{{route('user.logout')}}">--}}
+{{--                    <i class="ni ni-button-power"></i>--}}
+{{--                    <span class="nav-link-text">Logout</span>--}}
+{{--                </a>--}}
+{{--            </li>--}}
 
             <div class="copyright">
                 <p><strong>{{ $set->site_name }}</strong> © {{ date('Y')}} All Rights Reserved</p>
