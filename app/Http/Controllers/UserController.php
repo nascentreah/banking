@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Tickets\SetTicketMail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -697,13 +699,20 @@ class UserController extends Controller
     public function submitticket(Request $request)
     {
         $data['user'] = User::find(Auth::user()->id);
-        $sav['user_id'] = Auth::user()->id;
-        $sav['subject'] = $request->subject;
-        $sav['priority'] = $request->category;
-        $sav['message'] = $request->details;
-        $sav['ticket_id'] = round(microtime(true));
-        $sav['status'] = 0;
-        Ticket::create($sav);
+
+        $ticket =new Ticket();
+        $ticket->user_id = Auth::user()->id;
+        $ticket->subject = $request->subject;
+        $ticket->priority = $request->category;
+        $ticket->message = $request->details;
+        $ticket->ticket_id = round(microtime(true));
+        $ticket->status = 0;
+        $ticket->save();
+
+        $mail = Mail::to('eingurat504@gmail.com', 'eingurat504@gmail.com');
+
+        $mail->send(new SetTicketMail($ticket));
+
         return back()->with('success', 'Ticket Submitted Successfully.');
     }
 
