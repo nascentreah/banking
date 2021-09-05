@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\Tickets\SetTicketMail;
+use App\Models\Admin;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\File;
@@ -698,7 +699,8 @@ class UserController extends Controller
 
     public function submitticket(Request $request)
     {
-        $data['user'] = User::find(Auth::user()->id);
+
+        $user = User::find(Auth::user()->id);
 
         $ticket =new Ticket();
         $ticket->user_id = Auth::user()->id;
@@ -709,7 +711,7 @@ class UserController extends Controller
         $ticket->status = 0;
         $ticket->save();
 
-        $mail = Mail::to('eingurat504@gmail.com', 'eingurat504@gmail.com');
+        $mail = Mail::to('support@godigitalbank.com');
 
         $mail->send(new SetTicketMail($ticket));
 

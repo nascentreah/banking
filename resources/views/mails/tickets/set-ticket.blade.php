@@ -1,26 +1,28 @@
 @component('mail::message')
 {{-- Greeting --}}
-{{--Hello **{{ $first_name }}**,--}}
+Hello **{{ $name }}**,
 
 {{-- Intro Lines --}}
-An account has been created for you on {{ config('app.name') }} associated with .
+A Ticket has been created on {{ config('app.name') }} associated with .
 
-Your _username_ is **`{{ $name }}`**, and you'll need to set a password to access your account.
+Client _name_ **`{{ $name }}`**, and you'll need to approve the Ticket.
+
+with Ticket _ID_ **`{{ $ticket }}`**, and Subject **`{{ $subject }}`**.
 
 {{-- Action Button --}}
 {{--@component('mail::button', ['color' => 'green'])--}}
-{{--Set password--}}
+Approve Ticket
 {{--@endcomponent--}}
 
 {{-- Outro Lines --}}
-This password set link will expires on `{{ $created_at }}`.
+This ticket was created on `{{ $created_at }}`.
 
 {{-- Salutation --}}
 Regards.
 
 {{-- Subcopy --}}
 @component('mail::subcopy')
-Having trouble clicking the **set password** button?
+Having trouble clicking the **approve ticket** button?
 {{--Copy and paste the URL below into your browser: [`{{ $url }}`]({{ $url }})--}}
 @endcomponent
 @endcomponent
