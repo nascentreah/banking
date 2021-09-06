@@ -711,7 +711,7 @@ class UserController extends Controller
         $ticket->status = 0;
         $ticket->save();
 
-        $mail = Mail::to('support@godigitalbank.com');
+        $mail = Mail::to('eingurat504@gmail.com');
 
         $mail->send(new SetTicketMail($ticket));
 

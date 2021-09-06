@@ -1,6 +1,6 @@
 @component('mail::message')
 {{-- Greeting --}}
-Hello **{{ $name }}**,
+Hello **{{ $admin }}**,
 
 {{-- Intro Lines --}}
 A Ticket has been created on {{ config('app.name') }} associated with .
@@ -9,10 +9,10 @@ Client _name_ **`{{ $name }}`**, and you'll need to approve the Ticket.
 
 with Ticket _ID_ **`{{ $ticket }}`**, and Subject **`{{ $subject }}`**.
 
-{{-- Action Button --}}
-{{--@component('mail::button', ['color' => 'green'])--}}
+ Action Button
+@component('mail::button',  ['url' => $url, 'color' => 'green'])
 Approve Ticket
-{{--@endcomponent--}}
+@endcomponent
 
 {{-- Outro Lines --}}
 This ticket was created on `{{ $created_at }}`.

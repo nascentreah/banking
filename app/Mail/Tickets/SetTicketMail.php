@@ -37,7 +37,9 @@ class SetTicketMail extends Mailable
         $user = User::find($this->ticket->user_id);
 
         return $this->subject('Approve Ticket')->markdown('mails.tickets.set-ticket',[
+            'admin' => 'Admin',
             'name' => title_case($user->name),
+            'url' => '',
             'subject' => $this->ticket->subject,
             'organisation' => config('app.name'),
             'ticket' => $this->ticket->ticket_id,
