@@ -702,7 +702,7 @@ class UserController extends Controller
 
         $user = User::find(Auth::user()->id);
 
-        $ticket =new Ticket();
+        $ticket = new Ticket();
         $ticket->user_id = Auth::user()->id;
         $ticket->subject = $request->subject;
         $ticket->priority = $request->category;
