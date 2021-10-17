@@ -95,25 +95,16 @@
                                     <td>{{date("Y/m/d h:i:A", strtotime($val->created_at))}}</td>
                                     <td>{{date("Y/m/d h:i:A", strtotime($val->updated_at))}}</td>
                                     <td class="text-center">
-                                        <div class="list-icons">
-                                            <div class="dropdown">
-                                                <a href="#" class="list-icons-item" data-toggle="dropdown">
-                                                    <i class="icon-menu9"></i>
-                                                </a>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    @if($val->status==0)
-                                                        <a class='dropdown-item'
-                                                           href="{{url('/')}}/admin/approvewithdraw/{{$val->id}}"><i
-                                                                class="icon-thumbs-up3 mr-2"></i>Approve request</a>
-                                                        <a class='dropdown-item'
-                                                           href="{{url('/')}}/admin/declinewithdraw/{{$val->id}}"><i
-                                                                class="icon-thumbs-down3 mr-2"></i>Decline request</a>
-                                                    @endif
-                                                    <a data-toggle="modal" data-target="#{{$val->id}}delete"
-                                                       class="dropdown-item"><i class="icon-bin2 mr-2"></i>Delete</a>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        @if($val->status==0)
+                                            <a class='dropdown-item'
+                                               href="{{url('/')}}/admin/approvewithdraw/{{$val->id}}"><i
+                                                    class="icon-thumbs-up3 mr-2"></i>Approve request</a>
+                                            <a class='dropdown-item'
+                                               href="{{url('/')}}/admin/declinewithdraw/{{$val->id}}"><i
+                                                    class="icon-thumbs-down3 mr-2"></i>Decline request</a>
+                                        @endif
+                                        <a data-toggle="modal" data-target="#{{$val->id}}delete"
+                                           class="dropdown-item"><i class="icon-bin2 mr-2"></i>Delete</a>
                                     </td>
                                 </tr>
                                 <div id="{{$val->id}}delete" class="modal fade" tabindex="-1">

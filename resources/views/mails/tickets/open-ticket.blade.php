@@ -1,0 +1,28 @@
+@component('mail::message')
+{{-- Greeting --}}
+Hello **{{ $admin }}**,
+
+{{-- Intro Lines --}}
+An Open Ticket has been created on {{ config('app.name') }} associated with .
+
+Client _name_ **`{{ $name }}`**, and you'll need to close the Ticket.
+
+with Ticket _ID_ **`{{ $ticket }}`**, and Subject **`{{ $subject }}`**.
+
+ Action Button
+@component('mail::button',  ['url' => $url, 'color' => 'green'])
+Approve Ticket
+@endcomponent
+
+{{-- Outro Lines --}}
+This ticket was created on `{{ $created_at }}`.
+
+{{-- Salutation --}}
+Regards.
+
+{{-- Subcopy --}}
+@component('mail::subcopy')
+Having trouble clicking the **approve ticket** button?
+{{--Copy and paste the URL below into your browser: [`{{ $url }}`]({{ $url }})--}}
+@endcomponent
+@endcomponent
