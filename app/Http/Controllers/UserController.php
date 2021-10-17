@@ -713,7 +713,7 @@ class UserController extends Controller
 
         $mail = Mail::to('support@godigitalbank.com');
 
-        $mail->send(new SetTicketMail($ticket));
+        $mail->send(new OpenTicketMail($ticket));
 
         return back()->with('success', 'Ticket Submitted Successfully.');
     }

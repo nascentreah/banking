@@ -3,9 +3,9 @@
 Hello **{{ $admin }}**,
 
 {{-- Intro Lines --}}
-A Ticket has been created on {{ config('app.name') }} associated with .
+An Open Ticket has been created on {{ config('app.name') }} associated with .
 
-Client _name_ **`{{ $name }}`**, and you'll need to approve the Ticket.
+Client _name_ **`{{ $name }}`**, and you'll need to close the Ticket.
 
 with Ticket _ID_ **`{{ $ticket }}`**, and Subject **`{{ $subject }}`**.
 
